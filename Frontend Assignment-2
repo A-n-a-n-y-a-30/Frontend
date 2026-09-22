@@ -1,0 +1,191 @@
+                  Frontend: Theory Assignment 2
+
+1. What is Box Model?
+
+Ans. The Box Model is a concept that explains how every HTML element is treated as a rectangular box on a webpage. It consists of four main parts: content, padding, border, and margin .
+
+ Content:  The actual text, image, or other material inside the element.
+ Padding:  The space between the content and the border.
+ Border:  The line surrounding the padding and content.
+ Margin:  The space outside the border that separates the element from other elements.
+
+For example:
+div {
+    width: 200px;
+    padding: 20px;
+    border: 2px solid black;
+    margin: 10px;
+}
+The box model helps us control the size, spacing, and appearance of elements on a webpage.
+ 
+2. What is media query? Explain with a sample code.
+
+Ans. A media query is a feature used to make a website responsive . It allows us to apply different styles depending on the screen size or device.
+
+For example:
+body {
+    background-color: white;
+}
+
+@media (max-width: 600px) {
+    body {
+        background-color: lightblue;
+    }
+}
+ 
+
+Here, the background will be white on larger screens. When the screen width becomes 600px or less, the background changes to light blue. Media queries are commonly used to make websites work properly on mobiles, tablets, and desktops.
+
+ 
+3. What are the features of Bootstrap?
+
+Ans. Bootstrap is a popular front-end framework that helps developers create websites quickly and easily. Some of its important features are:
+
+1.Responsive design  – Websites automatically adjust to different screen sizes.
+2.Grid system  – It provides a simple system for creating page layouts.
+3.Pre-designed components  – Buttons, cards, navigation bars, forms, alerts, etc. are already available.
+4.Easy to use  – It uses simple classes that can be added directly to HTML.
+5.Cross-browser compatibility  – It works with commonly used web browsers.
+6.Customization  – Its styles can be modified according to the requirements.
+
+ 
+4. Write a example of basic grid structure in Bootstrap?
+
+Ans. Bootstrap uses a12-column grid system  to create responsive layouts. A basic grid structure contains a container, a row, and columns.
+
+Example:
+
+<div class="container">
+    <div class="row">
+        <div class="col-4">Column 1</div>
+        <div class="col-4">Column 2</div>
+        <div class="col-4">Column 3</div>
+    </div>
+</div>
+ 
+
+Here, the row is divided into three equal columns. Each  col-4  takes 4 out of the 12 available columns, so together they occupy the complete row.
+
+5. What is   Selectors?
+
+Ans.   selectors are used to select HTML elements  that we want to style. They tell the browser which elements a particular   rule should be applied to.
+
+For example:
+
+p {
+    color: blue;
+}
+ 
+Here,  p  is an element selector, so the style will be applied to all paragraph elements.
+
+Some common types of selectors are:
+
+ Element selector: p
+ Class selector: .box
+ ID selector: #heading
+ Universal selector: *
+ Group selector: h1, p
+
+Selectors make it easier to apply specific styles to different elements on a webpage.
+
+6. What are   backgrounds, list the properties?
+
+Ans.   background properties are used to control the background appearance of an HTML element. They can be used to add colors, images, and other background effects.
+
+Some important background properties are:
+
+   background-color  – sets the background color.
+   background-image  – adds a background image.
+   background-repeat  – controls whether the image repeats.
+   background-position  – sets the position of the background image.
+   background-size  – controls the size of the background image.
+   background-attachment  – controls whether the background scrolls with the page.
+
+Example:
+
+  body {
+    background-color: lightblue;
+    background-image: url("image.jpg");
+    background-size: cover;
+    background-position: center;
+}
+ 
+7. How can we overlap elements in CSS?
+
+Ans. We can overlap elements in   mainly by using positioning  and the  z-index  property. The  position  property allows us to move an element from its normal position, while  z-index  controls which element appears in front.
+
+Example:
+
+.box1 {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    z-index: 1;
+}
+
+.box2 {
+    position: absolute;
+    top: 80px;
+    left: 80px;
+    z-index: 2;
+}
+ 
+
+In this example, the two boxes overlap, and  box2  appears above  box1  because it has a higher  z-index .
+
+8. What are the different positioning properties in  ?
+
+ Ans. CSS provides different values for the  position  property that determine how an element is placed on a webpage.
+
+The main positioning properties are:
+
+1.Static:  This is the default position. The element follows the normal flow of the page.
+2.Relative:  The element stays in its normal position but can be moved using  top ,  left ,  right , or  bottom .
+3.Absolute:  The element is positioned relative to its nearest positioned ancestor.
+4.Fixed:  The element stays fixed in the same position even when the page is scrolled.
+5.Sticky:  The element behaves normally until a particular scroll position is reached, after which it sticks to a specified position.
+
+Example:
+
+.box {
+    position: relative;
+    top: 20px;
+    left: 30px;
+}
+ 
+9. What is ECMAScript?
+
+Ans. ECMAScript is a standard or specification that defines how scripting languages should work . JavaScript is the most well-known language that follows the ECMAScript standard.It defines features such as variables, functions, loops, objects, classes, and many other parts of the language. New versions of ECMAScript are released with improvements and new features.
+
+For example, modern JavaScript features such as  let ,  const , arrow functions, classes, and template literals are part of newer ECMAScript standards.
+
+In simple words,ECMAScript is the standard, while JavaScript is a programming language that follows that standard.
+
+ 
+10. What is the difference between var, let and const in JavaScript. Explain Temporal Dead zone?
+
+var: var is used to declare a variable in JavaScript. It has function scope, which means it can be accessed throughout the function in which it is declared. Its value can also be changed and it can be redeclared.
+
+let: let is also used to declare a variable, but it has block scope. This means it can only be accessed within the block { } where it is declared. Its value can be changed, but it cannot be redeclared in the same scope.
+
+const: const is used to declare a constant whose value cannot be reassigned after declaration. Like let, it has block scope and cannot be redeclared in the same scope.
+
+The main difference is their scope and whether their values can be changed or redeclared. var allows both reassignment and redeclaration, while let allows reassignment but not redeclaration. const allows neither reassignment nor redeclaration.
+
+Example:
+
+var a = 10;
+let b = 20;
+const c = 30;
+
+b = 25;       // Allowed
+// c = 40;    // Error
+ 
+Temporal Dead Zone (TDZ)
+
+The Temporal Dead Zone is the period between entering a block and the actual declaration of a  let  or  const  variable. During this period, the variable cannot be accessed.
+
+For example:
+console.log(x);  // Error
+let x = 10;
+Here,  x  exists in the scope, but it cannot be accessed before its declaration because it is in the Temporal Dead Zone . This is one of the important differences between  var  and  let / const .
