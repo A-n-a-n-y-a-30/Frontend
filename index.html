@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ShopDynamic</title>
+
+  <!-- Bootstrap 5.0.2 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body { background-color: #f4f6f8; }
+
+    /* Product card: no border, soft shadow */
+    .card { border: none; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); }
+
+    /* Product image: fixed height, cropped to fit */
+    .card-img-top { height: 180px; object-fit: cover; }
+
+    /* Description: always 2 lines, extra text is cut off with "..." */
+    .desc {
+      font-size: 0.8rem;
+      line-height: 1.2rem;
+      height: 2.4rem;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+
+    .rating { color: #e6a100; font-weight: 600; }  /* gold rating text */
+    .old-price { text-decoration: line-through; }  /* crossed-out price */
+    .out-of-stock { opacity: 0.65; }               /* faded out-of-stock card */
+    .grand-total-box { background-color: #fff3cd; } /* light yellow total box */
+  </style>
+</head>
+
+<!-- Products() is in obj_loop.js and runs when the page finishes loading -->
+<body onload="Products()">
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar navbar-expand navbar-light bg-light shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">🛍️ ShopDynamic</a>
+
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Shop</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+      </ul>
+
+      <!-- Cart button: opens/closes the cart offcanvas -->
+      <button class="btn btn-light position-relative" type="button"
+              data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas">
+        🛒
+        <span id="cartBadge"
+              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== PRODUCT CARDS (filled in by obj_loop.js) ===== -->
+  <div class="container mt-4">
+    <div class="row" id="productList"></div>
+  </div>
+
+  <!-- ===== SHOPPING CART (offcanvas on the right) ===== -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas"
+       data-bs-scroll="true" data-bs-backdrop="false">
+
+    <div class="offcanvas-header border-bottom">
+      <h5 class="offcanvas-title">Shopping Cart</h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+    </div>
+
+    <!-- Cart items are added here by obj_loop.js -->
+    <div class="offcanvas-body" id="cartItems"></div>
+
+    <!-- Cart footer: totals + checkout -->
+    <div class="p-3 border-top">
+      <h6 class="fw-bold">Cart Total</h6>
+
+      <div class="d-flex justify-content-between small mb-2">
+        <span>Items:</span>
+        <span id="cartCount">0</span>
+      </div>
+
+      <div class="d-flex justify-content-between p-2 rounded mb-3 grand-total-box">
+        <span class="fw-bold">Grand Total:</span>
+        <span class="fw-bold" id="grandTotal">₹0</span>
+      </div>
+
+      <button class="btn btn-success w-100">Proceed to Checkout</button>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5.0.2 JS (needed for the offcanvas) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Our own JavaScript -->
+  <script src="obj_loop.js"></script>
+</body>
+</html>
